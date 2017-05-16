@@ -10,7 +10,8 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -40,61 +41,39 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  @keyframes fadein {
-    from {
-      transform: translate(0px, 40px);
-      opacity: 0;
-
+  @mixin keyframes( $animationName ) {
+    @-webkit-keyframes #{$animationName} {
+      @content;
     }
-    to {
-      transform: translate(0px, 0px);
-      opacity: 1;
+    @-moz-keyframes #{$animationName} {
+      @content;
     }
-  }
-
-  /* Firefox < 16 */
-  @-moz-keyframes fadein {
-    from {
-      transform: translate(0px, 40px);
-      opacity: 0;
+    @-o-keyframes #{$animationName} {
+      @content;
     }
-    to {
-      transform: translate(0px, 0px);
-      opacity: 1;
+    @keyframes #{$animationName} {
+      @content;
     }
   }
 
-  /* Safari, Chrome and Opera > 12.1 */
-  @-webkit-keyframes fadein {
-    from {
-      transform: translate(0px, 40px);
-      opacity: 0;
-    }
-    to {
+  @include keyframes(bounce) {
+    0%, 20%, 50%, 80%, 100% {
       transform: translate(0px, 0px);
-      opacity: 1;
+    }
+    40% {
+      transform: translate(0px, -30px);
+    }
+    60% {
+      transform: translate(0px, -15px);
     }
   }
 
-  /* Internet Explorer */
-  @-ms-keyframes fadein {
-    from {
+  @include keyframes(fadeIn) {
+    0% {
       transform: translate(0px, 40px);
       opacity: 0;
     }
-    to {
-      transform: translate(0px, 0px);
-      opacity: 1;
-    }
-  }
-
-  /* Opera < 12.1 */
-  @-o-keyframes fadein {
-    from {
-      transform: translate(0px, 40px);
-      opacity: 0;
-    }
-    to {
+    100% {
       transform: translate(0px, 0px);
       opacity: 1;
     }

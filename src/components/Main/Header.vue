@@ -1,45 +1,30 @@
 <template>
-  <div class="header">
-
-    <div class="inner">
-      <div class="content">
+  <div class="header hero is-fullheight">
+    <div class="inner hero-body">
+      <div class="container">
         <h1 class="title is-1">GYMDAY</h1>
         <h2 class="subtitle is-4">나의 운동 여러분의 운동 함께합니다</h2>
 
         <div id="button-groups" class="columns">
-          <div id="download-button" class="round-button column">Download</div>
-          <div id="more-button" class="round-button column">Learn More</div>
+          <a id="download-button" class="round-button column is-offset-3 is-3"><i
+            class="material-icons">file_download</i>Download</a>
+          <a id="more-button" class="round-button column is-3"><i
+            class="material-icons">keyboard_arrow_down</i>Learn More</a>
         </div>
       </div>
     </div>
 
     <nav id="nav">
       <ul>
-        <li style="white-space: nowrap;"><a href="index.html">Home</a></li>
-        <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-          <a href="#">Dropdown</a>
-
-          <ul class="" style="-webkit-user-select: none; display: none; position: absolute;">
-            <li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-            <li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-            <li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-            <li class="opener" style="-webkit-user-select: none; cursor: pointer; white-space: nowrap;">
-              <a href="#" style="display: block;">And a submenu …</a>
-              <ul class="dropotron" style="-webkit-user-select: none; display: none; position: absolute;">
-                <li style="white-space: nowrap;"><a href="#" style="display: block;">Lorem ipsum dolor</a></li>
-                <li style="white-space: nowrap;"><a href="#" style="display: block;">Phasellus consequat</a></li>
-                <li style="white-space: nowrap;"><a href="#" style="display: block;">Magna phasellus</a></li>
-                <li style="white-space: nowrap;"><a href="#" style="display: block;">Etiam dolore nisl</a></li>
-              </ul>
-            </li>
-            <li style="white-space: nowrap;"><a href="#" style="display: block;">Veroeros feugiat</a></li>
-          </ul>
-        </li>
-        <li style="white-space: nowrap;"><a href="left-sidebar.html">Left Sidebar</a></li>
         <li style="white-space: nowrap;"><a href="right-sidebar.html">Right Sidebar</a></li>
         <li style="white-space: nowrap;"><a href="no-sidebar.html">No Sidebar</a></li>
       </ul>
     </nav>
+
+    <div id="learn-more">
+      <p>LEARN MORE</p>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </div>
   </div>
 </template>
 
@@ -49,16 +34,13 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .header {
-    height: 100vh;
-    min-height: 40em;
     position: relative;
+    background: white url('../../assets/header.jpg') no-repeat fixed center center;
     background-size: cover;
-    background: black url('../../assets/header.jpg') fixed center center;
     color: #fff;
     text-align: center;
-    padding: 7.5em 0 2em 0;
     cursor: default;
   }
 
@@ -66,7 +48,6 @@
     content: '';
     display: inline-block;
     vertical-align: middle;
-    height: 100%;
   }
 
   .header:after {
@@ -76,8 +57,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
     opacity: 0;
   }
 
@@ -89,17 +68,24 @@
     vertical-align: middle;
   }
 
-  /*.header .inner .content {*/
-  /*text-align: right;*/
-  /*}*/
-
   .header .inner .title {
     color: white;
     font-weight: 600;
+
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
   }
 
   .header .inner .subtitle {
     color: white;
+    margin-top: -0.6rem;
+
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
   }
 
   .round-button {
@@ -107,6 +93,15 @@
     border-radius: 4px;
     border: 1px solid white;
     margin: 10px;
+    font-weight: 800;
+
+    /* 처음 로드 될때 애니메이션 */
+    animation: fadein 3s;
+
+    /* 버튼 애니메이션 */
+    -moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+    -webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+    transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   }
 
   #download-button {
@@ -114,7 +109,17 @@
     color: white;
   }
 
+  #download-button:hover {
+    background-color: white;
+    color: rgb(69, 50, 76);
+  }
+
   #more-button {
+    background-color: white;
+    color: rgb(69, 50, 76);
+  }
+
+  #more-button:hover {
     background-color: transparent;
     color: white;
   }
@@ -174,5 +179,28 @@
     -webkit-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
     -ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
     transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+  }
+
+  #nav > ul > li > a {
+    color: white;
+  }
+
+  #button-groups > * > .material-icons {
+    vertical-align: middle;
+    font-size: 20px;
+    margin-right: 4px;
+    margin-left: -8px;
+  }
+
+  #learn-more {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    margin-bottom: 36px;
+
+    -webkit-animation: bounce 2s infinite; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: bounce 2s infinite; /* Firefox < 16 */
+    -o-animation: bounce 2s infinite; /* Opera < 12.1 */
+    animation: bounce 2s infinite;
   }
 </style>
