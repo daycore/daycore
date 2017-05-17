@@ -35,6 +35,20 @@
 </script>
 
 <style lang="scss" scoped>
+
+  @mixin animation($animation...) {
+    -o-animation: $animation;
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+    animation: $animation;
+  }
+
+  @mixin transition($animation...) {
+    -moz-transition: $animation;
+    -webkit-transition: $animation;
+    transition: $animation;
+  }
+
   .header {
     position: relative;
     background: white url('../../assets/header.jpg') no-repeat fixed center center;
@@ -71,21 +85,13 @@
   .header .inner .title {
     color: white;
     font-weight: 600;
-
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s; /* Firefox < 16 */
-    -o-animation: fadein 1s; /* Opera < 12.1 */
-    animation: fadein 1s;
+    @include animation(fadeIn 1s);
   }
 
   .header .inner .subtitle {
     color: white;
     margin-top: -0.6rem;
-
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
-    animation: fadein 2s;
+    @include animation(fadeIn 2s);
   }
 
   .round-button {
@@ -94,14 +100,13 @@
     border: 1px solid white;
     margin: 10px;
     font-weight: 800;
+    height: 50px;
 
     /* 처음 로드 될때 애니메이션 */
-    animation: fadein 3s;
+    @include animation(fadeIn 3s);
 
     /* 버튼 애니메이션 */
-    -moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
-    -webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
-    transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+    @include transition(background-color 0.35s ease-in-out, color 0.35s ease-in-out);
   }
 
   #download-button {
@@ -175,10 +180,8 @@
     border-radius: 0.5em;
     padding: 0.85em;
     border: solid 1px transparent;
-    -moz-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
-    -webkit-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
-    -ms-transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
-    transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
+
+    @include transition(color 0.35s ease-in-out, border-color 0.35s ease-in-out);
   }
 
   #nav > ul > li > a {
@@ -198,9 +201,6 @@
     bottom: 0%;
     margin-bottom: 36px;
 
-    -webkit-animation: bounce 2s infinite; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: bounce 2s infinite; /* Firefox < 16 */
-    -o-animation: bounce 2s infinite; /* Opera < 12.1 */
-    animation: bounce 2s infinite;
+    @include animation(bounce 2s infinite);
   }
 </style>
