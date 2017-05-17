@@ -2,14 +2,18 @@
   <div class="hello">
 
     <my-header></my-header>
-
+    <news></news>
   </div>
 </template>
 
 <script>
   import MyHeader from './Main/Header'
+  import News from './Main/News'
   export default {
-    components: {MyHeader},
+    components: {
+      News,
+      MyHeader
+    },
     name: 'hello',
     data () {
       return {
