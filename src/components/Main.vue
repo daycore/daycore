@@ -3,14 +3,19 @@
 
     <my-header></my-header>
     <news></news>
+    <about></about>
+
   </div>
 </template>
 
 <script>
   import MyHeader from './Main/Header'
   import News from './Main/News'
+  import About from './Main/About'
+
   export default {
     components: {
+      About,
       News,
       MyHeader
     },
