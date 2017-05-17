@@ -2,8 +2,8 @@
   <div class="hello">
 
     <my-header></my-header>
-    <news></news>
     <about></about>
+    <news></news>
 
   </div>
 </template>
