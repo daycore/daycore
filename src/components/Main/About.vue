@@ -1,11 +1,11 @@
 <template>
   <div class="hero is-fullheight">
-
     <div class="hero-body">
       <div class="container is-info">
-
         <div class="columns">
-
+          <div id="ci-container" class="column is-6">
+            <img id="ci" src="../../assets/ci.png"/>
+          </div>
           <div class="column is-6 description">
             <h1 class="subtitle is-5">
               데이코어는 <strong>'운동코치 짐데이'</strong> B2C 모바일 애플리케이션 서비스를 중심으로<br>
@@ -15,15 +15,9 @@
               지속적으로 건강을 관리할 수 있는 최적화된 솔루션을 제공하고자 합니다.<br>
             </h1>
           </div>
-
-          <div id="ci-container" class="column is-6">
-            <img id="ci" src="../../assets/ci.png"/>
-          </div>
-
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
