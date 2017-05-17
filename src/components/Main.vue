@@ -4,6 +4,7 @@
     <my-header></my-header>
     <about></about>
     <news></news>
+    <members></members>
 
   </div>
 </template>
@@ -12,9 +13,11 @@
   import MyHeader from './Main/Header'
   import News from './Main/News'
   import About from './Main/About'
+  import Members from './Main/Members'
 
   export default {
     components: {
+      Members,
       About,
       News,
       MyHeader
