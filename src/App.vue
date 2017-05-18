@@ -79,4 +79,8 @@
     }
   }
 
+  .mobile-background-attachment {
+    background-attachment: inherit !important;
+  }
+
 </style>

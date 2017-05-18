@@ -6,7 +6,8 @@
         <h2 class="subtitle is-4">나의 운동 여러분의 운동 함께합니다</h2>
 
         <div id="button-groups" class="columns">
-          <a href="https://jhr84.app.goo.gl/dqOU" target="_blank" id="download-button" class="round-button column is-offset-3 is-3"><i
+          <a href="https://jhr84.app.goo.gl/dqOU" target="_blank" id="download-button"
+             class="round-button column is-offset-3 is-3"><i
             class="material-icons">file_download</i>Download</a>
           <a v-on:click="onScrollDown" id="more-button" class="round-button column is-3"><i
             class="material-icons">keyboard_arrow_down</i>Learn More</a>
@@ -30,9 +31,16 @@
 
 <script>
   import Velocity from 'velocity-animate'
+  import MobileDetect from 'mobile-detect'
 
   export default {
     name: 'my-header',
+    mounted: function () {
+      // UserAgent 확인후 모바일이라면 background-attachment를 강제로  inherit 으로 변경ㅇ한다
+      if (new MobileDetect(window.navigator.userAgent).mobile()) {
+        document.querySelector('#header-container').className += ' mobile-background-attachment'
+      }
+    },
     methods: {
       onScrollDown: function () {
         const header = document.querySelector('#header-container')
@@ -59,7 +67,7 @@
 
   .header {
     position: relative;
-    background: white url('../../assets/header.jpg') no-repeat fixed center center;
+    background: white url('../../assets/bg_header.png') no-repeat fixed center center;
     background-size: cover;
     color: #fff;
     text-align: center;
@@ -150,6 +158,7 @@
     padding: 1.5em 0 1.5em 0;
     z-index: 1;
     overflow: hidden;
+    display: none;
   }
 
   #nav > ul {
