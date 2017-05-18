@@ -6,7 +6,7 @@
         <h1 class="subtitle is-4">식구가 뭐야 먹는거야?</h1>
 
         <div class="columns is-multiline">
-          <member-card v-for="member in members" class="column is-3-desktop is-4-tablet is-6-mobile" :member="member"></member-card>
+          <member-card v-for="member in members" v-bind:key="member.name" class="column is-3-desktop is-4-tablet is-6-mobile" :member="member"></member-card>
         </div>
       </div>
     </div>
