@@ -1,5 +1,5 @@
 <template>
-  <div class="header hero is-fullheight">
+  <div id="header-container" class="header hero is-fullheight">
     <div class="inner hero-body">
       <div class="container">
         <h1 class="title is-1">GYMDAY</h1>
@@ -8,7 +8,7 @@
         <div id="button-groups" class="columns">
           <a id="download-button" class="round-button column is-offset-3 is-3"><i
             class="material-icons">file_download</i>Download</a>
-          <a id="more-button" class="round-button column is-3"><i
+          <a v-on:click="onScrollDown" id="more-button" class="round-button column is-3"><i
             class="material-icons">keyboard_arrow_down</i>Learn More</a>
         </div>
       </div>
@@ -21,7 +21,7 @@
       </ul>
     </nav>
 
-    <div id="learn-more">
+    <div id="learn-more" v-on:click="onScrollDown">
       <p>LEARN MORE</p>
       <i class="material-icons">keyboard_arrow_down</i>
     </div>
@@ -29,8 +29,16 @@
 </template>
 
 <script>
+  import Velocity from 'velocity-animate'
+
   export default {
-    name: 'my-header'
+    name: 'my-header',
+    methods: {
+      onScrollDown: function () {
+        const header = document.querySelector('#header-container')
+        Velocity(header, 'scroll', {duration: 500, offset: header.offsetHeight})
+      }
+    }
   }
 </script>
 
@@ -200,7 +208,12 @@
     width: 100%;
     bottom: 0%;
     margin-bottom: 36px;
+    cursor: pointer;
+    z-index: 1;
 
     @include animation(bounce 2s infinite);
+    @media screen and (max-height: 500px) {
+      display: none;
+    }
   }
 </style>
