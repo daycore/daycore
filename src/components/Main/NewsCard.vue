@@ -8,7 +8,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="news-title title is-4">{{item.title}}</p>
+          <p class="title is-6">{{item.title}}</p>
         </div>
       </div>
     </div>
@@ -20,11 +20,25 @@
     props: ['item']
   }
 </script>
-<style>
-  .news-title {
-    font-size: 15pt;
+<style lang="scss" scoped>
+
+  @mixin transition($animation...) {
+    -moz-transition: $animation;
+    -webkit-transition: $animation;
+    transition: $animation;
+  }
+
+  .card {
+    cursor: pointer;
+  }
+
+  .title {
+    color: #483949;
     font-weight: 600;
-    color: #333333;
-    word-break: keep-all;
+    @include transition(color 0.35s ease-in-out)
+  }
+
+  .title:hover {
+    color: #ef8376;
   }
 </style>
