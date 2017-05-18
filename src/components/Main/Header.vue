@@ -6,7 +6,7 @@
         <h2 class="subtitle is-4">나의 운동 여러분의 운동 함께합니다</h2>
 
         <div id="button-groups" class="columns">
-          <a id="download-button" class="round-button column is-offset-3 is-3"><i
+          <a href="https://jhr84.app.goo.gl/dqOU" target="_blank" id="download-button" class="round-button column is-offset-3 is-3"><i
             class="material-icons">file_download</i>Download</a>
           <a v-on:click="onScrollDown" id="more-button" class="round-button column is-3"><i
             class="material-icons">keyboard_arrow_down</i>Learn More</a>
