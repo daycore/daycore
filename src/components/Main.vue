@@ -5,7 +5,7 @@
     <about></about>
     <news></news>
     <members :members="members"></members>
-
+    <my-footer></my-footer>
   </div>
 </template>
 
@@ -14,9 +14,11 @@
   import News from './Main/News'
   import About from './Main/About'
   import Members from './Main/Members'
+  import MyFooter from './Main/Footer'
 
   export default {
     components: {
+      MyFooter,
       Members,
       About,
       News,
