@@ -29,17 +29,17 @@
       return {
         msg: 'Welcome to Your Vue.js App',
         members: [
-          {name: '최경민', position: '대표', image: 'http://daycore.co.kr/img/section07_team1.png'},
-          {name: '권혁', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '김동환', position: '매니저', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '구용석', position: '매니저', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '고현주', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '박관호', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '송진표', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '이준', position: '랩짐데이', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '우동오', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '장우영', position: '디자이너', image: 'http://daycore.co.kr/img/section07_team2.png'},
-          {name: '정현지', position: '개발', image: 'http://daycore.co.kr/img/section07_team2.png'}
+          {name: '최경민', position: '대표', image: require('@/assets/members/kyoungmin.jpg')},
+          {name: '권혁', position: '개발', image: require('@/assets/members/hyeok.jpg')},
+          {name: '김동환', position: '매니저', image: require('@/assets/members/donghwan.jpg')},
+          {name: '구용석', position: '매니저', image: require('@/assets/members/yongseok.jpg')},
+          {name: '고현주', position: '개발', image: require('@/assets/members/hyunjoo.jpg')},
+          {name: '박관호', position: '개발', image: require('@/assets/members/parkkh.jpg')},
+          {name: '송진표', position: '개발', image: require('@/assets/members/jinpyo.jpg')},
+          {name: '이준', position: '랩짐데이', image: require('@/assets/members/leejun.png')},
+          {name: '우동오', position: '개발', image: require('@/assets/members/dongo.jpg')},
+          {name: '장우영', position: '디자이너', image: require('@/assets/members/wooyoung.jpg')},
+          {name: '정현지', position: '개발', image: require('@/assets/members/hyundee.jpg')}
         ],
         articles: [
           {
