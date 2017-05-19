@@ -79,4 +79,42 @@
     }
   }
 
+  @include keyframes(borderBefore) {
+    0% {
+      top:0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.0);
+      transform: scale(0.8);
+    }
+    100% {
+      top:-10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      transform: scale(1);
+    }
+  }
+
+  @include keyframes(borderAfter) {
+    0% {
+      top:0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.0);
+      transform: scale(0.8);
+    }
+    100% {
+      top:-20px;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+      border: 2px solid rgba(0, 0, 0, 0.8);
+      transform: scale(1);
+    }
+  }
+
 </style>

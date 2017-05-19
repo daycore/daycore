@@ -30,26 +30,28 @@
         </div>
       </div>
     </div>
-    <div class="hero is-fullheight">
-      <div class="about-service">
-        <div class="columns">
-          <div class="column is-6-desktop is-10-tablet is-12-mobile about-gymday">
-            <h3 class="title is-2 is-spaced service-title">
-              GYMDAY
-            </h3>
-            <h3 class="title is-5">
-              내 손안의 퍼스널 트레이너 <b>GYMDAY</b>
-            </h3>
+    <div class="hero is-fullheight about-service">
+      <div class="hero-body">
+        <div class="container is-info">
+          <div class="columns">
+            <div class="column is-6-desktop is-10-tablet is-12-mobile about-gymday">
+              <h3 class="title is-2 is-spaced service-title">
+                GYMDAY
+              </h3>
+              <h3 class="title is-5">
+                내 손안의 퍼스널 트레이너 <b>GYMDAY</b>
+              </h3>
+            </div>
           </div>
-        </div>
-        <div class="columns">
-          <div class="column is-6-desktop is-offset-6-desktop is-10-tablet is-offset-2-tablet is-12-mobile about-labgymday">
-            <h3 class="title is-2 is-spaced service-title">
-              LAB GYMDAY
-            </h3>
-            <h3 class="title is-5">
-              차별화된 모바일 트레이닝 솔루션 <b>LAB GYMDAY</b>
-            </h3>
+          <div class="columns">
+            <div class="column is-6-desktop is-offset-6-desktop is-10-tablet is-offset-2-tablet is-12-mobile about-labgymday">
+              <h3 class="title is-2 is-spaced service-title">
+                LAB GYMDAY
+              </h3>
+              <h3 class="title is-5">
+                차별화된 모바일 트레이닝 솔루션 <b>LAB GYMDAY</b>
+              </h3>
+            </div>
           </div>
         </div>
       </div>
@@ -64,9 +66,15 @@
 </script>
 
 <style scoped lang="scss">
+  @mixin animation($animation...) {
+    -o-animation: $animation;
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+    animation: $animation;
+  }
 
   .about {
-    background: url(../../assets/bg_about.png) no-repeat fixed center center;
+    background: url('../../assets/bg_about.png') no-repeat fixed center center;
     background-size: cover;
   }
 
@@ -111,11 +119,6 @@
     left: -10px;
   }
 
-  .about-service .columns {
-    margin-top: 100px;
-    margin-bottom: 300px;
-  }
-
   .about-service .column {
     position: relative;
     padding: 70px 30px;
@@ -145,33 +148,11 @@
   }
 
   .about-service .column:hover::before {
-    animation: borderBefore 0.7s ease-in-out 0.2s infinite;
-    -webkit-animation: borderBefore 0.7s ease-in-out 0.2s infinite;
-  }
-
-  @keyframes borderBefore {
-    0% {top:0px; left: 0px;width: 100%;height: 100%; border: 1px solid rgba(0, 0, 0, 0.0);transform: scale(0.8);}
-    100% {top:-10px; left: -10px;width: calc(100% + 20px);height: calc(100% + 20px); border: 2px solid rgba(0, 0, 0, 0.7);transform: scale(1);}
-  }
-
-  @-webkit-keyframes borderBefore {
-    0% {top:0px; left: 0px;width: 100%;height: 100%; border: 1px solid rgba(0, 0, 0, 0.0);transform: scale(0.8);}
-    100% {top:-10px; left: -10px;width: calc(100% + 20px);height: calc(100% + 20px); border: 2px solid rgba(0, 0, 0, 1);transform: scale(1);}
+    @include animation(borderBefore 0.7s ease-in-out 0.2s infinite);
   }
 
   .about-service .column:hover::after {
-    animation: borderAfter 0.7s ease-in-out 0.3s infinite;
-    -webkit-animation: borderAfter 0.7s ease-in-out 0.3s infinite;
-  }
-
-  @keyframes borderAfter {
-    0% {top:0px; left: 0px;width: 100%;height: 100%; border: 1px solid rgba(0, 0, 0, 0.0);transform: scale(0.8);}
-    100% {top:-20px; left: -20px;width: calc(100% + 40px);height: calc(100% + 40px); border: 2px solid rgba(0, 0, 0, 0.8);transform: scale(1);}
-  }
-
-  @-webkit-keyframes borderAfter {
-    0% {top:0px; left: 0px;width: 100%;height: 100%; border: 1px solid rgba(0, 0, 0, 0.0);transform: scale(0.8);}
-    100% {top:-20px; left: -20px;width: calc(100% + 40px);height: calc(100% + 40px); border: 2px solid rgba(0, 0, 0, 0.8);transform: scale(1);}
+    @include animation(borderAfter 0.7s ease-in-out 0.3s infinite);
   }
 
   .about-service .about-labgymday {
@@ -190,7 +171,7 @@
 
   .about-service .title:not(.service-title) {
     letter-spacing: 5px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.8);
   }
 
   #ci-container {
