@@ -74,12 +74,18 @@
         const header = document.getElementById('header-container')
         const about = document.getElementById('about')
         if (window.pageYOffset < (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간보다 위에 있을 때
+          if (this.positionY > 100 || this.positionY < 0) {
+            return
+          }
           this.positionY = this.positionY + 1
           about.style.backgroundPositionY = this.positionY + '%'
         } else if (window.pageYOffset > (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset > (about.offsetTop + header.clientHeight)) { // 스크롤이 About 중간보다 아래에 있을 때
+          if (this.positionY > 100 || this.positionY < 0) {
+            return
+          }
           this.positionY = this.positionY - 1
           about.style.backgroundPositionY = this.positionY + '%'
-        } else if (window.pageYOffset === (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간에 있을 때
+        } else if (window.pageYOffset === (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset === 0) { // 스크롤이 About 중간에 있을 때
           this.positionY = 0
         }
       }
