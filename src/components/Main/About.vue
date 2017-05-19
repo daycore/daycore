@@ -1,5 +1,6 @@
 <template>
-  <div class="about" id="about" v-on:scroll="scroll($event, 'left')">
+  <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
+    <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.png"/>
     <div class="hero intro">
       <div class="hero-body">
         <div class="container is-info">
@@ -11,7 +12,6 @@
           </div>
           <div class="columns">
             <div class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet is-12-mobile ">
-              <!--<h3 class="title is-2">About</h3>-->
               <hr>
               <h3 class="title is-6 is-spaced about-title">데이코어는 B2C 모바일 애플리케이션 서비스를 제공하는 스타트업 회사입니다.</h3>
             </div>
@@ -60,12 +60,14 @@
 </template>
 
 <script>
-//  import Velocity from 'velocity-animate'
+  import MobileDetect from 'mobile-detect'
 
   export default {
     name: 'about',
     data: function () {
       return {
+        bgImgRatio: 0,
+        bgSize: 0,
         positionY: 0
       }
     },
@@ -74,13 +76,21 @@
         const header = document.getElementById('header-container')
         const about = document.getElementById('about')
         if (window.pageYOffset < (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간보다 위에 있을 때
-          if (this.positionY > 100 || this.positionY < 0) {
+          if (this.positionY > 100) {
+            this.positionY = 100
+            return
+          } else if (this.positionY < 0) {
+            this.positionY = 0
             return
           }
           this.positionY = this.positionY + 1
           about.style.backgroundPositionY = this.positionY + '%'
         } else if (window.pageYOffset > (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset > (about.offsetTop + header.clientHeight)) { // 스크롤이 About 중간보다 아래에 있을 때
-          if (this.positionY > 100 || this.positionY < 0) {
+          if (this.positionY > 100) {
+            this.positionY = 100
+            return
+          } else if (this.positionY < 0) {
+            this.positionY = 0
             return
           }
           this.positionY = this.positionY - 1
@@ -88,10 +98,32 @@
         } else if (window.pageYOffset === (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset === 0) { // 스크롤이 About 중간에 있을 때
           this.positionY = 0
         }
+      },
+      onLoadAboutImg: function ($event) { // About 배경 이미지 로딩 시 이미지 크기 가져옴
+        console.log($event.target.naturalWidth, $event.target.naturalHeight)
+        this.bgImgRatio = $event.target.naturalWidth / $event.target.naturalHeight
+
+        this.setBackgroundSize()
+      },
+      setBackgroundSize: function () { // About 배경 이미지에 따라 배경 크기 정의
+        const windowWidth = window.innerWidth
+        const windowHeight = window.innerHeight
+        const windowRatio = windowWidth / windowHeight
+
+        if (windowRatio >= this.bgImgRatio) {
+          this.bgSize = windowWidth
+        } else if (windowRatio < this.bgImgRatio) {
+          this.bgSize = windowHeight * this.bgImgRatio
+        }
       }
     },
     mounted () {
-      window.addEventListener('scroll', this.handleScroll)
+      // UserAgent 확인후 모바일이라면 background-attachment를 강제로  inherit 으로 변경한다
+      if (new MobileDetect(window.navigator.userAgent).mobile()) {
+        document.querySelector('#about').className += ' mobile-background-attachment'
+      }
+      window.addEventListener('scroll', this.handleScroll) // scroll 이벤트 발생 시 About 배경 이미지 애니메이션 작동
+      window.addEventListener('resize', this.setBackgroundSize) // resize 이벤트 발생 시 About 배경 이미지 크기 조절
     }
   }
 </script>
@@ -105,8 +137,12 @@
   }
 
   .about {
-    background: url('../../assets/bg_about.png') no-repeat fixed center center;
-    background-size: cover;
+    background: url('../../assets/bg_about.png') no-repeat center center;
+    /*background-size: cover;*/
+  }
+
+  .about:not(.mobile-background-attachment) {
+    background-attachment: fixed;
   }
 
   .hero {
