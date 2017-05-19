@@ -1,6 +1,6 @@
 <template>
-  <div class="about">
-    <div class="hero">
+  <div class="about" id="about" v-on:scroll="scroll($event, 'left')">
+    <div class="hero intro">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -16,17 +16,17 @@
               <h3 class="title is-6 is-spaced about-title">데이코어는 B2C 모바일 애플리케이션 서비스를 제공하는 스타트업 회사입니다.</h3>
             </div>
           </div>
-          <div class="columns">
-            <div class="column is-6-desktop is-offset-3-desktop is-8-tablet is-offset-2-tablet is-hidden-mobile description">
-              <h3 class="title is-6 about-sub-title">
-                데이코어는 올바른 운동과 식습관 관리를 통해 사용자에게 가치를 제공하는 서비스를 제공함으로써
-                대표 서비스인 <b>'운동코치 짐데이'</b>와 오프라인 센터 <b>'랩짐데이'</b>를 운영하고 있습니다.
-                <br>
-                데이코어는 이러한 서비스를 통해 사용자의 생활습관, 체력, 신체프로필 및 건강데이터에 기반하여 실질적으로 운동을 코칭해주고
-                지속적으로 건강을 관리할 수 있는 최적화된 솔루션을 제공하고자 합니다.
-              </h3>
-            </div>
-          </div>
+          <!--<div class="columns">-->
+            <!--<div class="column is-6-desktop is-offset-3-desktop is-8-tablet is-offset-2-tablet is-hidden-mobile description">-->
+              <!--<h3 class="title is-6 about-sub-title">-->
+                <!--데이코어는 올바른 운동과 식습관 관리를 통해 사용자에게 가치를 제공하는 서비스를 제공함으로써-->
+                <!--대표 서비스인 <b>'운동코치 짐데이'</b>와 오프라인 센터 <b>'랩짐데이'</b>를 운영하고 있습니다.-->
+                <!--<br>-->
+                <!--데이코어는 이러한 서비스를 통해 사용자의 생활습관, 체력, 신체프로필 및 건강데이터에 기반하여 실질적으로 운동을 코칭해주고-->
+                <!--지속적으로 건강을 관리할 수 있는 최적화된 솔루션을 제공하고자 합니다.-->
+              <!--</h3>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </div>
@@ -60,8 +60,33 @@
 </template>
 
 <script>
+//  import Velocity from 'velocity-animate'
+
   export default {
-    name: 'about'
+    name: 'about',
+    data: function () {
+      return {
+        positionY: 0
+      }
+    },
+    methods: {
+      handleScroll: function ($event) {
+        const header = document.getElementById('header-container')
+        const about = document.getElementById('about')
+        if (window.pageYOffset < (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간보다 위에 있을 때
+          this.positionY = this.positionY + 1
+          about.style.backgroundPositionY = this.positionY + '%'
+        } else if (window.pageYOffset > (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset > (about.offsetTop + header.clientHeight)) { // 스크롤이 About 중간보다 아래에 있을 때
+          this.positionY = this.positionY - 1
+          about.style.backgroundPositionY = this.positionY + '%'
+        } else if (window.pageYOffset === (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간에 있을 때
+          this.positionY = 0
+        }
+      }
+    },
+    mounted () {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
 </script>
 
@@ -80,6 +105,12 @@
 
   .hero {
     background: transparent;
+  }
+
+  .intro > .hero-body {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    background: rgba(0, 0, 0, 0.7);
   }
 
   hr {
