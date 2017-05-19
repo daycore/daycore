@@ -119,7 +119,7 @@
   .about-service .column {
     position: relative;
     padding: 70px 30px;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
   }
 
   .about-service .column.about-gymday::before, .about-service .column.about-gymday::after {
