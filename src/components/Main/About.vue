@@ -34,7 +34,7 @@
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
-            <div class="column is-6-desktop is-10-tablet is-12-mobile about-gymday">
+            <div class="column is-6-desktop is-6-tablet is-12-mobile about-gymday">
               <h3 class="title is-2 is-spaced service-title">
                 GYMDAY
               </h3>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="columns">
-            <div class="column is-6-desktop is-offset-6-desktop is-10-tablet is-offset-2-tablet is-12-mobile about-labgymday">
+            <div class="column is-6-desktop is-offset-6-desktop is-6-tablet is-offset-6-tablet is-12-mobile about-labgymday">
               <h3 class="title is-2 is-spaced service-title">
                 LAB GYMDAY
               </h3>
