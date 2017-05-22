@@ -1,7 +1,7 @@
 <template>
   <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
     <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.png"/>
-    <div class="hero intro">
+    <div class="hero is-fullheight intro">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -13,7 +13,8 @@
           <div class="columns">
             <div class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet is-12-mobile ">
               <hr>
-              <h3 class="title is-6 is-spaced about-title">데이코어는 B2C 모바일 애플리케이션 서비스를 제공하는 스타트업 회사입니다.</h3>
+              <h3 class="title is-6 is-spaced about-title">DAYCORE는 모바일 운동 앱 서비스를 제공하는 스타트업 회사입니다.</h3>
+              <h3 class="title is-6 is-spaced about-title">데이코어는 당신의 운동을 응원합니다:)</h3>
             </div>
           </div>
           <!--<div class="columns">-->
@@ -41,6 +42,13 @@
               <h3 class="title is-5">
                 내 손안의 퍼스널 트레이너 <b>GYMDAY</b>
               </h3>
+              <h3 class="title is-4 is-spaced icons">
+                <span class="icon"><i class="fa fa-facebook-official"></i></span>
+                <span class="icon"><i class="fa fa-instagram"></i></span>
+                <span class="icon"><i class="fa fa-youtube-play"></i></span>
+                <span class="icon"><i class="fa fa-android"></i></span>
+                <span class="icon"><i class="fa fa-apple"></i></span>
+              </h3>
             </div>
           </div>
           <div class="columns">
@@ -50,6 +58,10 @@
               </h3>
               <h3 class="title is-5">
                 차별화된 모바일 트레이닝 솔루션 <b>LAB GYMDAY</b>
+              </h3>
+              <h3 class="title is-4 is-spaced icons">
+                <span class="icon"><i class="fa fa-home"></i></span>
+                <span class="icon"><i class="fa fa-commenting"></i></span>
               </h3>
             </div>
           </div>
@@ -138,11 +150,15 @@
 
   .about {
     background: url('../../assets/bg_about.png') no-repeat center center;
-    /*background-size: cover;*/
   }
 
   .about:not(.mobile-background-attachment) {
     background-attachment: fixed;
+    background-position: center center;
+  }
+
+  .about.mobile-background-attachment {
+    background-size: cover !important;
   }
 
   .hero {
@@ -153,6 +169,10 @@
     margin-top: 200px;
     margin-bottom: 200px;
     background: rgba(0, 0, 0, 0.7);
+  }
+
+  .is-info {
+    @include animation(fadeIn 2s);
   }
 
   hr {
@@ -192,9 +212,17 @@
     left: -10px;
   }
 
+  .about-gymday:hover .icons {
+    @include animation(slideToRight 2s);
+  }
+
+  .about-labgymday:hover .icons {
+    @include animation(slideToLeft 2s);
+  }
+
   .about-service .column {
     position: relative;
-    padding: 70px 30px;
+    padding: 50px 30px;
     background: rgba(0, 0, 0, 0.3);
   }
 
@@ -221,11 +249,11 @@
   }
 
   .about-service .column:hover::before {
-    @include animation(borderBefore 0.7s ease-in-out 0.2s infinite);
+    @include animation(zoomBefore 0.7s ease-in-out 0.2s infinite);
   }
 
   .about-service .column:hover::after {
-    @include animation(borderAfter 0.7s ease-in-out 0.3s infinite);
+    @include animation(zoomAfter 0.7s ease-in-out 0.3s infinite);
   }
 
   .about-service .about-labgymday {
