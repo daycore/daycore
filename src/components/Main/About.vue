@@ -1,7 +1,7 @@
 <template>
   <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
     <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.png"/>
-    <div class="hero is-fullheight intro">
+    <div class="hero is-fullheight intro" id="slide-up">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -17,21 +17,10 @@
               <h3 class="title is-6 is-spaced about-title">데이코어는 당신의 운동을 응원합니다:)</h3>
             </div>
           </div>
-          <!--<div class="columns">-->
-            <!--<div class="column is-6-desktop is-offset-3-desktop is-8-tablet is-offset-2-tablet is-hidden-mobile description">-->
-              <!--<h3 class="title is-6 about-sub-title">-->
-                <!--데이코어는 올바른 운동과 식습관 관리를 통해 사용자에게 가치를 제공하는 서비스를 제공함으로써-->
-                <!--대표 서비스인 <b>'운동코치 짐데이'</b>와 오프라인 센터 <b>'랩짐데이'</b>를 운영하고 있습니다.-->
-                <!--<br>-->
-                <!--데이코어는 이러한 서비스를 통해 사용자의 생활습관, 체력, 신체프로필 및 건강데이터에 기반하여 실질적으로 운동을 코칭해주고-->
-                <!--지속적으로 건강을 관리할 수 있는 최적화된 솔루션을 제공하고자 합니다.-->
-              <!--</h3>-->
-            <!--</div>-->
-          <!--</div>-->
         </div>
       </div>
     </div>
-    <div class="hero is-fullheight about-service">
+    <div class="hero is-fullheight about-service" id="slide-side">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -84,7 +73,11 @@
       }
     },
     methods: {
-      handleScroll: function ($event) {
+      handleScroll: function () {
+        this.backgroundAnimation()
+        this.animationInView()
+      },
+      backgroundAnimation: function () {
         const header = document.getElementById('header-container')
         const about = document.getElementById('about')
         if (window.pageYOffset < (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간보다 위에 있을 때
@@ -111,8 +104,18 @@
           this.positionY = 0
         }
       },
+      animationInView: function () { // 해당 Element가 뷰에 보일 때 애니메이션 적용
+        const windowHeight = window.innerHeight
+        const slideUp = document.getElementById('slide-up')
+        const slideSide = document.getElementById('slide-side')
+
+        if ((window.pageYOffset >= slideUp.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= slideUp.offsetTop + (windowHeight / 2)) && !slideUp.classList.contains('fade-in')) {
+          slideUp.classList.add('fade-in') // ci
+        } else if ((window.pageYOffset >= slideSide.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= slideSide.offsetTop + (windowHeight / 2)) && !slideSide.classList.contains('fade-in')) {
+          slideSide.classList.add('fade-in') // gymday, labgymday
+        }
+      },
       onLoadAboutImg: function ($event) { // About 배경 이미지 로딩 시 이미지 크기 가져옴
-        console.log($event.target.naturalWidth, $event.target.naturalHeight)
         this.bgImgRatio = $event.target.naturalWidth / $event.target.naturalHeight
 
         this.setBackgroundSize()
@@ -171,10 +174,6 @@
     background: rgba(0, 0, 0, 0.7);
   }
 
-  .is-info {
-    @include animation(fadeIn 2s);
-  }
-
   hr {
     width: 70px;
     border: 2px solid #ffffff;
@@ -210,14 +209,6 @@
     position: absolute;
     top: -10px;
     left: -10px;
-  }
-
-  .about-gymday:hover .icons {
-    @include animation(slideToRight 2s);
-  }
-
-  .about-labgymday:hover .icons {
-    @include animation(slideToLeft 2s);
   }
 
   .about-service .column {
@@ -285,6 +276,29 @@
     width: 75%;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  #slide-up:not(.fade-in) {
+    opacity: 0;
+  }
+
+  #slide-up.fade-in {
+    opacity: 1;
+    @include animation(fadeIn 2s);
+  }
+
+  #slide-side:not(.fade-in) .about-gymday, #slide-side:not(.fade-in) .about-labgymday {
+    opacity: 0;
+  }
+
+  #slide-side.fade-in .about-gymday {
+    opacity: 1;
+    @include animation(slideToRight 2s);
+  }
+
+  #slide-side.fade-in .about-labgymday {
+    opacity: 1;
+    @include animation(slideToLeft 2s);
   }
 
 </style>
