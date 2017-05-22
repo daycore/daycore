@@ -58,34 +58,18 @@
 
   @include keyframes(zoomBefore) {
     0% {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       transform: scale(0.8);
     }
     100% {
-      top: -10px;
-      left: -10px;
-      width: calc(100% + 20px);
-      height: calc(100% + 20px);
       transform: scale(1);
     }
   }
 
   @include keyframes(zoomAfter) {
     0% {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       transform: scale(0.8);
     }
     100% {
-      top: -20px;
-      left: -20px;
-      width: calc(100% + 40px);
-      height: calc(100% + 40px);
       transform: scale(1);
     }
   }
