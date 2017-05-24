@@ -27,16 +27,24 @@
             <div class="column is-6-desktop is-6-tablet is-12-mobile about-gymday">
               <img class="logo" src="../../assets/logo_gymday.png"/>
               <h3 class="title is-5">
-                내 손안의 퍼스널 트레이너 <b>짐데이</b>
+                내 손안의 퍼스널 트레이너 짐데이
               </h3>
+              <a class="learn-more" href="https://jhr84.app.goo.gl/dqOU" target="_blank">
+                더 알아보기
+                <i class="material-icons">arrow_forward</i>
+              </a>
             </div>
           </div>
           <div class="columns">
             <div class="column is-6-desktop is-offset-6-desktop is-6-tablet is-offset-6-tablet is-12-mobile about-labgymday">
               <img class="logo" src="../../assets/logo_labgymday.png"/>
               <h3 class="title is-5">
-                차별화된 모바일 트레이닝 솔루션 <b>랩짐데이</b>
+                차별화된 모바일 트레이닝 솔루션 랩짐데이
               </h3>
+              <a class="learn-more" href="https://gymday-wannabe-web.firebaseapp.com/" target="_blank">
+                <i class="material-icons">arrow_back</i>
+                더 알아보기
+              </a>
             </div>
           </div>
         </div>
@@ -237,6 +245,7 @@
   }
 
   .about-service .title {
+    margin-bottom: 10px;
     word-break: keep-all;
   }
 
@@ -252,6 +261,21 @@
   .about-service .title {
     letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  .about-service .learn-more {
+    color: #fff;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .about-service .learn-more .material-icons {
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: 900;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    vertical-align: text-bottom;
   }
 
   #ci-container {
