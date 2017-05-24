@@ -14,7 +14,7 @@
             <div class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet is-12-mobile ">
               <hr>
               <h3 class="title is-6 is-spaced about-title">DAYCORE는 모바일 운동 앱 서비스를 제공하는 스타트업 회사입니다.</h3>
-              <h3 class="title is-6 is-spaced about-title">데이코어는 당신의 운동을 응원합니다:)</h3>
+              <h3 class="title is-6 is-spaced about-title">데이코어는 당신의 멋진 몸매을 응원합니다:)</h3>
             </div>
           </div>
         </div>
@@ -25,32 +25,17 @@
         <div class="container is-info">
           <div class="columns">
             <div class="column is-6-desktop is-6-tablet is-12-mobile about-gymday">
-              <h3 class="title is-2 is-spaced service-title">
-                GYMDAY
-              </h3>
+              <img class="logo" src="../../assets/logo_gymday.png"/>
               <h3 class="title is-5">
-                내 손안의 퍼스널 트레이너 <b>GYMDAY</b>
-              </h3>
-              <h3 class="title is-4 is-spaced icons">
-                <span class="icon"><i class="fa fa-facebook-official"></i></span>
-                <span class="icon"><i class="fa fa-instagram"></i></span>
-                <span class="icon"><i class="fa fa-youtube-play"></i></span>
-                <span class="icon"><i class="fa fa-android"></i></span>
-                <span class="icon"><i class="fa fa-apple"></i></span>
+                내 손안의 퍼스널 트레이너 <b>짐데이</b>
               </h3>
             </div>
           </div>
           <div class="columns">
             <div class="column is-6-desktop is-offset-6-desktop is-6-tablet is-offset-6-tablet is-12-mobile about-labgymday">
-              <h3 class="title is-2 is-spaced service-title">
-                LAB GYMDAY
-              </h3>
+              <img class="logo" src="../../assets/logo_labgymday.png"/>
               <h3 class="title is-5">
-                차별화된 모바일 트레이닝 솔루션 <b>LAB GYMDAY</b>
-              </h3>
-              <h3 class="title is-4 is-spaced icons">
-                <span class="icon"><i class="fa fa-home"></i></span>
-                <span class="icon"><i class="fa fa-commenting"></i></span>
+                차별화된 모바일 트레이닝 솔루션 <b>랩짐데이</b>
               </h3>
             </div>
           </div>
@@ -255,14 +240,17 @@
     word-break: keep-all;
   }
 
-  .about-service .title.service-title {
-    font-weight: 600;
-    letter-spacing: 7px;
-    color: #fff;
+  .logo {
+    width: 300px;
+    margin: 20px 0;
   }
 
-  .about-service .title:not(.service-title) {
-    letter-spacing: 5px;
+  .about-gymday .logo {
+    margin: 50px 0;
+  }
+
+  .about-service .title {
+    letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.8);
   }
 
