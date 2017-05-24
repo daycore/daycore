@@ -2,9 +2,9 @@
   <div id="header-container" class="header hero is-fullheight">
     <div class="inner hero-body">
       <div class="container">
-        <h1 class="title is-1">GYMDAY</h1>
-        <h2 class="subtitle is-4">나의 운동 여러분의 운동 함께합니다</h2>
-
+        <img class="logo" src="../../assets/logo_gymday.png"/>
+        <h2 class="subtitle is-4">내 손안의 퍼스널 트레이너</h2>
+        <h2 class="subtitle is-4">운동코치 짐데이</h2>
         <div id="button-groups" class="columns">
           <a href="https://jhr84.app.goo.gl/dqOU" target="_blank" id="download-button"
              class="round-button column is-offset-3 is-3"><i
@@ -98,9 +98,9 @@
     vertical-align: middle;
   }
 
-  .header .inner .title {
-    color: white;
-    font-weight: 600;
+  .header .inner .logo {
+    width: 400px;
+    margin-bottom: 40px;
     @include animation(fadeIn 1s);
   }
 
