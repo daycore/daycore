@@ -43,6 +43,21 @@
         ],
         articles: [
           {
+            title: '2016 올해를 빛낸 자기계발 앱 선정',
+            description: '구글이 뽑은 2016 올해를 빛낸 자기계발 앱 1위',
+            image: require('@/assets/articles/news10.jpg')
+          },
+          {
+            title: '오프라인 플래그십 스튜디오 랩짐데이 오픈',
+            description: '운동코치 짐데이, 오프라인 플래그십 스튜디오 랩짐데이 오픈',
+            image: require('@/assets/articles/news9.png')
+          },
+          {
+            title: '구글 에디터 추천 앱 선정',
+            description: '운동코치 짐데이, 구글 에디터 추천 앱 선정',
+            image: require('@/assets/articles/news11.jpg')
+          },
+          {
             title: 'G.PACE 출시',
             description: '운동코치 짐데이, 블루투스 연동 스마트 체중계 G.PACE 출시',
             image: require('@/assets/articles/news1.png')

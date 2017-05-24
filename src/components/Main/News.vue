@@ -9,7 +9,7 @@
 
       <div class="container">
         <div class="title-container">
-          <h1 class="title is-1">안녕, 너는 <strong>데이코어의</strong> 기사를 보고있어.</h1>
+          <h1 class="title is-1 is-spaced">안녕, <strong>데이코어는</strong> 처음이지?</h1>
           <h2 class="subtitle is-6">여기에는 즐거운 데이코어 기사들이 있지 한번 확인해봐</h2>
         </div>
         <div class="news-wrap" id="news">
