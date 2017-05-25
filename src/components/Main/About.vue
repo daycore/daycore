@@ -1,7 +1,7 @@
 <template>
   <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
     <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.png"/>
-    <div class="hero is-fullheight intro" id="slide-up">
+    <div class="hero is-fullheight intro" id="intro">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -19,8 +19,12 @@
           </div>
         </div>
       </div>
+      <div class="learn-more" v-on:click="onScrollDownToService">
+        <p>LEARN MORE</p>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </div>
     </div>
-    <div class="hero is-fullheight about-service" id="slide-side">
+    <div class="hero is-fullheight about-service" id="service">
       <div class="hero-body">
         <div class="container is-info">
           <div class="columns">
@@ -29,10 +33,12 @@
               <h3 class="title is-5">
                 내 손안의 퍼스널 트레이너 짐데이
               </h3>
-              <a class="learn-more" href="https://jhr84.app.goo.gl/dqOU" target="_blank">
-                더 알아보기
-                <i class="material-icons">arrow_forward</i>
-              </a>
+              <p>
+                <a class="link" href="https://jhr84.app.goo.gl/dqOU" target="_blank">
+                  더 알아보기
+                  <i class="material-icons">arrow_forward</i>
+                </a>
+              </p>
             </div>
           </div>
           <div class="columns">
@@ -41,13 +47,20 @@
               <h3 class="title is-5">
                 차별화된 모바일 트레이닝 솔루션 랩짐데이
               </h3>
-              <a class="learn-more" href="https://gymday-wannabe-web.firebaseapp.com/" target="_blank">
-                <i class="material-icons">arrow_back</i>
-                더 알아보기
-              </a>
+              <p>
+                <a class="link" href="https://gymday-wannabe-web.firebaseapp.com/" target="_blank">
+                  <i class="material-icons">arrow_back</i>
+                  더 알아보기
+                </a>
+              </p>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="learn-more" v-on:click="onScrollDownToNews">
+        <p>LEARN MORE</p>
+        <i class="material-icons">keyboard_arrow_down</i>
       </div>
     </div>
   </div>
@@ -55,6 +68,7 @@
 
 <script>
   import MobileDetect from 'mobile-detect'
+  import Velocity from 'velocity-animate'
 
   export default {
     name: 'about',
@@ -99,13 +113,13 @@
       },
       animationInView: function () { // 해당 Element가 뷰에 보일 때 애니메이션 적용
         const windowHeight = window.innerHeight
-        const slideUp = document.getElementById('slide-up')
-        const slideSide = document.getElementById('slide-side')
+        const intro = document.getElementById('intro')
+        const service = document.getElementById('service')
 
-        if ((window.pageYOffset >= slideUp.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= slideUp.offsetTop + (windowHeight / 2)) && !slideUp.classList.contains('fade-in')) {
-          slideUp.classList.add('fade-in') // ci
-        } else if ((window.pageYOffset >= slideSide.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= slideSide.offsetTop + (windowHeight / 2)) && !slideSide.classList.contains('fade-in')) {
-          slideSide.classList.add('fade-in') // gymday, labgymday
+        if ((window.pageYOffset >= intro.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= intro.offsetTop + (windowHeight / 2)) && !intro.classList.contains('fade-in')) {
+          intro.classList.add('fade-in') // ci
+        } else if ((window.pageYOffset >= service.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= service.offsetTop + (windowHeight / 2)) && !service.classList.contains('fade-in')) {
+          service.classList.add('fade-in') // gymday, labgymday
         }
       },
       onLoadAboutImg: function ($event) { // About 배경 이미지 로딩 시 이미지 크기 가져옴
@@ -123,6 +137,14 @@
         } else if (windowRatio < this.bgImgRatio) {
           this.bgSize = windowHeight * this.bgImgRatio
         }
+      },
+      onScrollDownToService: function () { // service 소개로 스크롤 이동
+        const intro = document.querySelector('#intro')
+        Velocity(intro, 'scroll', {duration: 500, offset: intro.offsetHeight})
+      },
+      onScrollDownToNews: function () { // News로 스크롤 이동
+        const service = document.querySelector('#service')
+        Velocity(service, 'scroll', {duration: 500, offset: service.offsetHeight})
       }
     },
     mounted () {
@@ -157,14 +179,16 @@
     background-size: cover !important;
   }
 
+  .is-fullheight {
+    position: relative;
+  }
+
   .hero {
     background: transparent;
   }
 
   .intro > .hero-body {
-    margin-top: 200px;
-    margin-bottom: 200px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
   }
 
   hr {
@@ -204,9 +228,24 @@
     left: -10px;
   }
 
+  .learn-more {
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    cursor: pointer;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+
+    @include animation(bounce 2s infinite);
+    @media screen and (max-height: 500px) {
+      display: none;
+    }
+  }
+
   .about-service .column {
     position: relative;
-    padding: 50px 30px;
+    padding: 30px 30px;
     background: rgba(0, 0, 0, 0.3);
   }
 
@@ -263,13 +302,13 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  .about-service .learn-more {
+  .about-service .link {
     color: #fff;
     font-weight: 900;
     cursor: pointer;
   }
 
-  .about-service .learn-more .material-icons {
+  .about-service .link .material-icons {
     cursor: pointer;
     font-size: 12pt;
     font-weight: 900;
@@ -290,25 +329,25 @@
     margin-bottom: 20px;
   }
 
-  #slide-up:not(.fade-in) {
+  #intro:not(.fade-in) {
     opacity: 0;
   }
 
-  #slide-up.fade-in {
+  #intro.fade-in {
     opacity: 1;
     @include animation(fadeIn 2s);
   }
 
-  #slide-side:not(.fade-in) .about-gymday, #slide-side:not(.fade-in) .about-labgymday {
+  #service:not(.fade-in) .about-gymday, #service:not(.fade-in) .about-labgymday {
     opacity: 0;
   }
 
-  #slide-side.fade-in .about-gymday {
+  #service.fade-in .about-gymday {
     opacity: 1;
     @include animation(slideToRight 2s);
   }
 
-  #slide-side.fade-in .about-labgymday {
+  #service.fade-in .about-labgymday {
     opacity: 1;
     @include animation(slideToLeft 2s);
   }
