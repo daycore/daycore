@@ -2,7 +2,7 @@
   <div class="hero is-fullheight">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-2">데이코어 가.족같은 멤버</h1>
+        <h1 class="title is-2 is-spaced">데이코어 가.족같은 멤버</h1>
         <h1 class="subtitle is-4">가족이 뭐야 먹는거야?</h1>
 
         <div class="columns is-mobile is-multiline">
