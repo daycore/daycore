@@ -8,8 +8,8 @@
     <div class="card-content">
       <div class="media">
         <div class="media-content">
-          <p class="title is-4">{{member.name}}</p>
-          <p class="subtitle is-6">{{member.position}}</p>
+          <p class="title is-4 is-spaced">{{member.name}}</p>
+          <p class="subtitle">{{member.position}}</p>
         </div>
       </div>
     </div>
@@ -24,7 +24,11 @@
 </script>
 
 <style scoped>
-  .title {
-    margin-bottom: 1.8rem;
+  .title:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+
+  .subtitle {
+    font-size: 11pt;
   }
 </style>
