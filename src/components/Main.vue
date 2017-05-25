@@ -5,6 +5,7 @@
     <about></about>
     <news :articles="articles"></news>
     <members :members="members"></members>
+    <contact-us></contact-us>
     <my-footer></my-footer>
   </div>
 </template>
@@ -15,6 +16,7 @@
   import About from './Main/About'
   import Members from './Main/Members'
   import MyFooter from './Main/Footer'
+  import ContactUs from './Main/ContactUs'
 
   export default {
     components: {
@@ -22,7 +24,8 @@
       Members,
       About,
       News,
-      MyHeader
+      MyHeader,
+      ContactUs
     },
     name: 'hello',
     data () {
