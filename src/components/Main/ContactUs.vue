@@ -7,41 +7,41 @@
           <div class="field">
             <label class="label">Username</label>
             <p class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" placeholder="보내는 사람">
+              <input class="input" type="text" placeholder="보내는 사람">
               <span class="icon is-small is-left">
                 <i class="fa fa-user"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-check"></i>
-              </span>
+              <!--<span class="icon is-small is-right">-->
+                <!--<i class="fa fa-check"></i>-->
+              <!--</span>-->
             </p>
-            <p class="help is-success">This username is available</p>
+            <!--<p class="help is-success">This username is available</p>-->
           </div>
           <div class="field">
             <label class="label">Email</label>
             <p class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="text" placeholder="이메일 주소">
+              <input class="input" type="text" placeholder="이메일 주소">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-warning"></i>
-              </span>
+              <!--<span class="icon is-small is-right">-->
+                <!--<i class="fa fa-warning"></i>-->
+              <!--</span>-->
             </p>
-            <p class="help is-danger">이메일 형식이 옳지 않습니다. 다시 입력해주세요:(</p>
+            <!--<p class="help is-danger">이메일 형식이 옳지 않습니다. 다시 입력해주세요:(</p>-->
           </div>
           <div class="field">
             <label class="label">Phone Number</label>
             <p class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="text" placeholder="연락처(ex.010-1234-5678)">
+              <input class="input" type="text" placeholder="연락처(ex.010-1234-5678)">
               <span class="icon is-small is-left">
                 <i class="fa fa-envelope"></i>
               </span>
-              <span class="icon is-small is-right">
-                <i class="fa fa-warning"></i>
-              </span>
+              <!--<span class="icon is-small is-right">-->
+                <!--<i class="fa fa-warning"></i>-->
+              <!--</span>-->
             </p>
-            <p class="help is-danger">연락처 형식이 옳지 않습니다. 다시 입력해주세요:(</p>
+            <!--<p class="help is-danger">연락처 형식이 옳지 않습니다. 다시 입력해주세요:(</p>-->
           </div>
           <div class="field">
             <label class="label">Message</label>
