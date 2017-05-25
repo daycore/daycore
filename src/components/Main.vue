@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
 
-    <my-header></my-header>
+    <my-header :download="download"></my-header>
     <about></about>
     <news :articles="articles"></news>
     <members :members="members"></members>
@@ -31,27 +31,22 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        members: {
-          management: [
-            {name: '최경민', position: 'CEO', image: require('@/assets/members/kyoungmin.jpg')},
-            {name: '김동환', position: 'Team Manager', image: require('@/assets/members/donghwan.jpg')},
-            {name: '구용석', position: 'Marketer', image: require('@/assets/members/yongseok.jpg')},
-            {name: '장우영', position: 'Designer', image: require('@/assets/members/wooyoung.jpg')}
-          ],
-          development: [
-            {name: '권혁', position: 'Server Developer', image: require('@/assets/members/hyeok.jpg')},
-            {name: '정현지', position: 'Android Developer', image: require('@/assets/members/hyundee.jpg')},
-            {name: '송진표', position: 'IOS Developer', image: require('@/assets/members/jinpyo.jpg')},
-            {name: '고현주', position: 'Web Developer', image: require('@/assets/members/hyunjoo.jpg')},
-            {name: '우동오', position: 'Web Developer', image: require('@/assets/members/dongo.jpg')}
-          ],
-          training: [
-            {name: '이준', position: 'Director of Labgymday', image: require('@/assets/members/leejun.png')},
-            {name: 'MJ', position: 'Gymday Coach', image: require('@/assets/members/mj.png')},
-            {name: 'EDI', position: 'Gymday Coach', image: require('@/assets/members/edi.png')},
-            {name: 'EVA', position: 'Gymday Coach', image: require('@/assets/members/eva.png')}
-          ]
-        },
+        download: 'https://play.google.com/store/apps/details?id=kr.co.igrove.gymday',
+        members: [
+          {name: '최경민', position: '대표', image: require('@/assets/members/kyoungmin.jpg')},
+          {name: '권혁', position: '개발', image: require('@/assets/members/hyeok.jpg')},
+          {name: '김동환', position: '매니저', image: require('@/assets/members/donghwan.jpg')},
+          {name: '구용석', position: '매니저', image: require('@/assets/members/yongseok.jpg')},
+          {name: '장우영', position: '디자이너', image: require('@/assets/members/wooyoung.jpg')},
+          {name: '정현지', position: '개발', image: require('@/assets/members/hyundee.jpg')},
+          {name: '고현주', position: '개발', image: require('@/assets/members/hyunjoo.jpg')},
+          {name: '송진표', position: '개발', image: require('@/assets/members/jinpyo.jpg')},
+          {name: '우동오', position: '개발', image: require('@/assets/members/dongo.jpg')},
+          {name: '이준', position: '랩짐데이', image: require('@/assets/members/leejun.png')},
+          {name: 'MJ', position: '랩짐데이', image: require('@/assets/members/mj.png')},
+          {name: 'EDI', position: '랩짐데이', image: require('@/assets/members/edi.png')},
+          {name: 'EVA', position: '랩짐데이', image: require('@/assets/members/eva.png')}
+        ],
         articles: [
           {
             title: '2016 올해를 빛낸 자기계발 앱 선정',
@@ -109,6 +104,20 @@
             image: require('@/assets/articles/news8.png')
           }
         ]
+      }
+    },
+    mounted: function () {
+      this.checkBrowser()
+    },
+    methods: {
+      checkBrowser: function () { // 브라우저에 따라 앱 스토어 링크 변경
+        const ua = navigator.userAgent.toLowerCase()
+
+        if (ua.indexOf('safari') !== -1) {
+          if (ua.indexOf('chrome') <= -1) { // Safari
+            this.download = 'https://itunes.apple.com/kr/genre/ios/id36?mt=8'
+          }
+        }
       }
     }
   }

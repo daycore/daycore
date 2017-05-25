@@ -1,12 +1,12 @@
 <template>
-  <div id="header-container" class="header hero is-fullheight">
+  <div id="header-container" class="header hero is-medium is-fullheight">
     <div class="inner hero-body">
       <div class="container">
         <img class="logo" src="../../assets/logo_gymday.png"/>
         <h2 class="subtitle is-4">내 손안의 퍼스널 트레이너</h2>
         <h2 class="subtitle is-4">운동코치 짐데이</h2>
         <div id="button-groups" class="columns">
-          <a href="https://jhr84.app.goo.gl/dqOU" target="_blank" id="download-button"
+          <a v-bind:href="download" target="_blank" id="download-button"
              class="round-button column is-offset-3 is-3"><i
             class="material-icons">file_download</i>Download</a>
           <a v-on:click="onScrollDown" id="more-button" class="round-button column is-3"><i
@@ -35,6 +35,7 @@
 
   export default {
     name: 'my-header',
+    props: ['download'],
     mounted: function () {
       // UserAgent 확인후 모바일이라면 background-attachment를 강제로  inherit 으로 변경ㅇ한다
       if (new MobileDetect(window.navigator.userAgent).mobile()) {
