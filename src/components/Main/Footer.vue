@@ -10,17 +10,17 @@
         <p class="subtitle is-6">사업자등록번호 : 144-81-14007 | 대표자 : 최경민 | 통신판매업신고번호 : 제2016-서울강남-03264호</p>
         <p class="subtitle is-6"><i class="fa fa-envelope"></i> info@daycore.co.kr</p>
         <p>
-          <a class="icon" href="https://github.com/jgthms/bulma">
-            <i class="fa fa-github"></i>
-          </a>
           <a class="icon" href="https://www.facebook.com/gymdaykorea">
-            <i class="fa fa-facebook-official"></i>
+            <img src="../../assets/footer_facebook_color.png"/>
           </a>
           <a class="icon" href="http://instagram.com/gymday_official">
-            <i class="fa fa-instagram"></i>
+            <img src="../../assets/footer_instagram_color.png"/>
           </a>
-          <a class="icon" href="http://youtube.com">
-            <i class="fa fa-youtube"></i>
+          <a class="icon" href="https://www.youtube.com/channel/UC0mtRNjXDzvpauAQSmX65MQ">
+            <img src="../../assets/footer_youtube_color.png"/>
+          </a>
+          <a class="icon" href="http://post.naver.com/my.nhn?memberNo=11714168">
+            <img src="../../assets/footer_naver_color.png"/>
           </a>
         </p>
 
@@ -47,6 +47,12 @@
   .subtitle {
     margin-top: -30px;
     padding-top: 18px;
+  }
+
+  .icon {
+    width: 30px;
+    margin: 0 10px;
+    vertical-align: top;
   }
 
 </style>

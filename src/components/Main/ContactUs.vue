@@ -81,15 +81,16 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 0 0 20px 0;
-    border: 2px solid #00c4a7;
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.9);
   }
 
   .title {
+    padding: 15px 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     background-color: #00c4a7;
     color: #fff;
-    padding: 10px 20px;
   }
 
   .field {
