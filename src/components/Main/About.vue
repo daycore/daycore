@@ -34,7 +34,7 @@
                 내 손안의 퍼스널 트레이너 짐데이
               </h3>
               <p>
-                <a class="link" href="https://jhr84.app.goo.gl/dqOU" target="_blank">
+                <a class="link" v-bind:href="download" target="_blank">
                   더 알아보기
                   <i class="material-icons">arrow_forward</i>
                 </a>
@@ -79,6 +79,7 @@
         positionY: 0
       }
     },
+    props: ['download'],
     methods: {
       handleScroll: function () {
         this.backgroundAnimation()

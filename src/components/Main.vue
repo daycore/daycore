@@ -2,7 +2,7 @@
   <div class="hello">
 
     <my-header :download="download"></my-header>
-    <about></about>
+    <about :download="download"></about>
     <news :articles="articles"></news>
     <members :members="members"></members>
     <contact-us></contact-us>
@@ -31,7 +31,7 @@
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',
-        download: 'https://play.google.com/store/apps/details?id=kr.co.igrove.gymday',
+        download: 'https://jhr84.app.goo.gl/dqOU',
         members: [
           {name: '최경민', position: '대표', image: require('@/assets/members/kyoungmin.jpg')},
           {name: '권혁', position: '개발', image: require('@/assets/members/hyeok.jpg')},
@@ -114,9 +114,13 @@
         const ua = navigator.userAgent.toLowerCase()
 
         if (ua.indexOf('safari') !== -1) {
-          if (ua.indexOf('chrome') <= -1) { // Safari
+          if (ua.indexOf('chrome') > -1) { // Chrome
+            this.download = 'https://play.google.com/store/apps/details?id=kr.co.igrove.gymday'
+          } else { // Safari
             this.download = 'https://itunes.apple.com/kr/genre/ios/id36?mt=8'
           }
+        } else if (ua.indexOf('mozilla') !== -1) { // IE
+          this.download = 'https://play.google.com/store/apps/details?id=kr.co.igrove.gymday'
         }
       }
     }
