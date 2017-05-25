@@ -3,7 +3,7 @@
 
     <div class="hero-body">
 
-      <div class="left" v-on:mouseover="onMouseOver($event, 'left')" v-on:mouseout="this.onMouseOut">
+      <div class="left" v-on:click="onClick($event, 'left')" v-on:mouseover="onMouseOver($event, 'left')" v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_left</i>
       </div>
 
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="right" v-on:mouseover="onMouseOver($event, 'right')" v-on:mouseout="this.onMouseOut">
+      <div class="right" v-on:click="onClick($event, 'right')" v-on:mouseover="onMouseOver($event, 'right')" v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_right</i>
       </div>
 
@@ -30,6 +30,9 @@
 </template>
 <script>
   import NewsCard from './NewsCard'
+  import MobileDetect from 'mobile-detect'
+  import Velocity from 'velocity-animate'
+
   export default {
     components: {NewsCard},
     name: 'news',
@@ -65,12 +68,35 @@
     },
     methods: {
       onMouseOver: function (event, direction) {
-        if (this.isScrolling) return
-        this.scrollingDirection = direction
-        this.isScrolling = true
+//        if (this.isScrolling) return
+//        this.scrollingDirection = direction
+//        this.isScrolling = true
       },
       onMouseOut: function (event) {
-        this.isScrolling = false
+//        this.isScrolling = false
+      },
+      onClick: function (event, direction) {
+        const newsElement = document.querySelector('#news > .columns')
+        const cardWidth = document.querySelector('.card').clientWidth
+        var index = 0
+
+        if (direction === 'left') {
+          index = parseInt(-this.left / cardWidth) + 1
+          this.left = -index * cardWidth
+          Velocity(newsElement, { translateX: `${this.left - 19.2 * index}px` }, { duration: 600 })
+        } else {
+          index = parseInt(this.left / cardWidth) + 1
+          if (index >= 1) {
+            return
+          }
+          this.left = index * cardWidth
+          Velocity(newsElement, { translateX: `${this.left + 19.2 * index}px` }, { duration: 600 })
+        }
+      }
+    },
+    mounted: function () {
+      if (new MobileDetect(window.navigator.userAgent).mobile()) {
+        document.querySelector('#news').className += ' mobile-scroll'
       }
     }
   }
@@ -104,6 +130,10 @@
     width: 100%;
     padding: 2.5rem;
     background: rgb(240, 244, 244);
+  }
+
+  .news-wrap.mobile-scroll {
+    overflow-x: scroll;
   }
 
   .news-card {
