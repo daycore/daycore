@@ -82,6 +82,9 @@
 
         if (direction === 'left') {
           index = parseInt(-this.left / cardWidth) + 1
+          if (index >= document.getElementsByClassName('news-card').length) {
+            return
+          }
           this.left = -index * cardWidth
           Velocity(newsElement, { translateX: `${this.left - 19.2 * index}px` }, { duration: 600 })
         } else {
