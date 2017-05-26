@@ -67,7 +67,7 @@
           {
             title: '구글 에디터 추천 앱 선정',
             description: '운동코치 짐데이, 구글 에디터 추천 앱 선정',
-            image: require('@/assets/articles/news11.jpg')
+            image: require('@/assets/articles/news11.png')
           },
           {
             title: 'G.PACE 출시',
