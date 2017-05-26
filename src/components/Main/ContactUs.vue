@@ -35,7 +35,7 @@
             <p class="control has-icons-left has-icons-right">
               <input class="input" type="text" placeholder="연락처(ex.010-1234-5678)">
               <span class="icon is-small is-left">
-                <i class="fa fa-envelope"></i>
+                <i class="fa fa-phone"></i>
               </span>
               <!--<span class="icon is-small is-right">-->
                 <!--<i class="fa fa-warning"></i>-->
