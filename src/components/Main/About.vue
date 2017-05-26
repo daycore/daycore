@@ -19,10 +19,6 @@
           </div>
         </div>
       </div>
-      <div class="learn-more" v-on:click="onScrollDownToService">
-        <p>LEARN MORE</p>
-        <i class="material-icons">keyboard_arrow_down</i>
-      </div>
     </div>
     <div class="hero is-fullheight about-service" id="service">
       <div class="hero-body">
@@ -138,10 +134,6 @@
         } else if (windowRatio < this.bgImgRatio) {
           this.bgSize = windowHeight * this.bgImgRatio
         }
-      },
-      onScrollDownToService: function () { // service 소개로 스크롤 이동
-        const intro = document.querySelector('#intro')
-        Velocity(intro, 'scroll', {duration: 500, offset: intro.offsetHeight})
       },
       onScrollDownToNews: function () { // News로 스크롤 이동
         const service = document.querySelector('#service')
