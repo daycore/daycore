@@ -47,6 +47,11 @@
 </script>
 
 <style lang="scss" scoped>
+
+  textarea {
+    overflow-y: auto;
+  }
+
   .hero {
     background: url('../../assets/bg_contactUs.jpg') fixed no-repeat center center;
     background-size: cover;
