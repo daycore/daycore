@@ -1,5 +1,5 @@
 <template>
-  <div id="header-container" class="header hero is-medium is-fullheight">
+  <div id="header-container" class="header background hero is-medium is-fullheight">
     <div class="inner hero-body">
       <div class="container">
         <img class="logo" src="../../assets/logo_gymday.png"/>
@@ -31,17 +31,10 @@
 
 <script>
   import Velocity from 'velocity-animate'
-  import MobileDetect from 'mobile-detect'
 
   export default {
     name: 'my-header',
     props: ['download'],
-    mounted: function () {
-      // UserAgent 확인후 모바일이라면 background-attachment를 강제로  inherit 으로 변경ㅇ한다
-      if (new MobileDetect(window.navigator.userAgent).mobile()) {
-        document.querySelector('#header-container').className += ' mobile-background-attachment'
-      }
-    },
     methods: {
       onScrollDown: function () {
         const header = document.querySelector('#header-container')

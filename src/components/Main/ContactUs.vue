@@ -1,5 +1,5 @@
 <template>
-  <div class="hero is-fullheight">
+  <div class="background hero is-fullheight">
     <div class="inner hero-body">
       <div class="container">
         <div class="contact">

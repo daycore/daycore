@@ -1,5 +1,5 @@
 <template>
-  <div class="hero is-fullheight">
+  <div class="hero is-fullheight background">
     <div class="hero-body">
       <div class="container">
         <h1 class="title is-2 is-spaced">데이코어 가.족같은 멤버</h1>
