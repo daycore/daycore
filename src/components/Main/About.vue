@@ -38,7 +38,8 @@
             </div>
           </div>
           <div class="columns">
-            <div class="column is-6-desktop is-offset-6-desktop is-6-tablet is-offset-6-tablet is-12-mobile about-labgymday">
+            <div
+              class="column is-6-desktop is-offset-6-desktop is-6-tablet is-offset-6-tablet is-12-mobile about-labgymday">
               <img class="logo" src="../../assets/logo_labgymday.png"/>
               <h3 class="title is-5">
                 차별화된 모바일 트레이닝 솔루션 랩짐데이
@@ -231,6 +232,7 @@
     position: absolute;
     width: 100%;
     bottom: 0%;
+    display: none;
     cursor: pointer;
     z-index: 1;
     color: #fff;
@@ -251,11 +253,13 @@
   .about-service .column.about-gymday::before, .about-service .column.about-gymday::after {
     background: url('../../assets/gymday.png') no-repeat center center;
     background-size: contain;
+    display: none;
   }
 
   .about-service .column.about-labgymday::before, .about-service .column.about-labgymday::after {
     background: url('../../assets/labgymday.png') no-repeat center center;
     background-size: contain;
+    display: none;
   }
 
   .about-service .column::before, .about-service .column::after {
