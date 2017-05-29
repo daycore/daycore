@@ -60,8 +60,9 @@
   }
 
   .icon.circle > img {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
+    width: 100%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
     border-radius: 20%;
   }
 
