@@ -12,7 +12,10 @@
     mounted: function () {
       // UserAgent 확인후 모바일이라면 background-attachment를 강제로 inherit 으로 변경ㅇ한다
       if (bowser.mobile || bowser.msie) {
-        document.querySelectorAll('.background').forEach(element => (element.className += ' mobile-background-attachment'))
+        const backgrounds = document.querySelectorAll('.background')
+        for (let i = 0; i < backgrounds.length; i++) {
+          backgrounds[i].className += ' mobile-background-attachment'
+        }
       }
     }
   }
