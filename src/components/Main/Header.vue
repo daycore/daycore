@@ -68,7 +68,7 @@
 
   .header {
     position: relative;
-    background: white url('../../assets/bg_header.png') no-repeat fixed center center;
+    background: white url('../../assets/bg_header.jpg') no-repeat fixed center center;
     background-size: cover;
     color: #fff;
     text-align: center;
