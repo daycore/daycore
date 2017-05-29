@@ -38,7 +38,7 @@
 
 <style scoped>
   .hero.is-fullheight {
-    background: url(../../assets/bg_members.png) no-repeat fixed center center;
+    background: url(../../assets/bg_members.jpg) no-repeat fixed center center;
     background-size: cover;
   }
 
