@@ -1,6 +1,6 @@
 <template>
   <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
-    <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.png"/>
+    <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.jpg"/>
     <div class="hero is-fullheight intro" id="intro">
       <div class="hero-body">
         <div class="container is-info">
@@ -161,7 +161,7 @@
   }
 
   .about {
-    background: url('../../assets/bg_about.png') no-repeat center center;
+    background: url('../../assets/bg_about.jpg') no-repeat center center;
   }
 
   .about:not(.mobile-background-attachment) {
