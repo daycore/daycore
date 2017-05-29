@@ -27,10 +27,9 @@
       MyHeader,
       ContactUs
     },
-    name: 'hello',
+    name: 'main',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App',
         download: 'https://play.google.com/store/apps/details?id=kr.co.igrove.gymday',
         members: {
           management: [
