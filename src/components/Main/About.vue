@@ -1,6 +1,5 @@
 <template>
-  <div class="about" id="about" v-bind:style="{'background-size': bgSize + 'px'}">
-    <img style="display: none" v-on:load="onLoadAboutImg($event)" src="../../assets/bg_about.jpg"/>
+  <div class="about background" id="about" v-bind:style="{'background-position-y': `${positionY}%`}">
     <div class="hero is-fullheight intro" id="intro">
       <div class="hero-body">
         <div class="container is-info">
@@ -11,7 +10,8 @@
             </div>
           </div>
           <div class="columns">
-            <div class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet is-12-mobile ">
+            <div id="about-description-group"
+                 class="column is-8-desktop is-offset-2-desktop is-10-tablet is-offset-1-tablet is-12-mobile">
               <hr>
               <h3 class="title is-6 is-spaced about-title">DAYCORE는 모바일 운동 앱 서비스를 제공하는 스타트업 회사입니다.</h3>
               <h3 class="title is-6 is-spaced about-title">데이코어는 당신의 멋진 몸매을 응원합니다:)</h3>
@@ -64,15 +64,12 @@
 </template>
 
 <script>
-  import MobileDetect from 'mobile-detect'
   import Velocity from 'velocity-animate'
 
   export default {
     name: 'about',
     data: function () {
       return {
-        bgImgRatio: 0,
-        bgSize: 0,
         positionY: 0
       }
     },
@@ -83,57 +80,21 @@
         this.animationInView()
       },
       backgroundAnimation: function () {
-        const header = document.getElementById('header-container')
-        const about = document.getElementById('about')
-        if (window.pageYOffset < (about.offsetTop + (about.clientHeight / 2))) { // 스크롤이 About 중간보다 위에 있을 때
-          if (this.positionY > 100) {
-            this.positionY = 100
-            return
-          } else if (this.positionY < 0) {
-            this.positionY = 0
-            return
-          }
-          this.positionY = this.positionY + 1
-          about.style.backgroundPositionY = this.positionY + '%'
-        } else if (window.pageYOffset > (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset > (about.offsetTop + header.clientHeight)) { // 스크롤이 About 중간보다 아래에 있을 때
-          if (this.positionY > 100) {
-            this.positionY = 100
-            return
-          } else if (this.positionY < 0) {
-            this.positionY = 0
-            return
-          }
-          this.positionY = this.positionY - 1
-          about.style.backgroundPositionY = this.positionY + '%'
-        } else if (window.pageYOffset === (about.offsetTop + (about.clientHeight / 2)) && window.pageYOffset === 0) { // 스크롤이 About 중간에 있을 때
-          this.positionY = 0
+        // About Section 이 화면 내에 있을때만 작동한다
+        const aboutOffsetBottom = this.aboutElement.offsetTop + this.aboutElement.offsetHeight
+        if (window.pageYOffset < aboutOffsetBottom && window.pageYOffset < aboutOffsetBottom) {
+          this.positionY = (window.pageYOffset / (aboutOffsetBottom)) * 100
         }
       },
       animationInView: function () { // 해당 Element가 뷰에 보일 때 애니메이션 적용
         const windowHeight = window.innerHeight
-        const intro = document.getElementById('intro')
-        const service = document.getElementById('service')
+        const intro = this.introElement
+        const service = this.serviceElement
 
         if ((window.pageYOffset >= intro.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= intro.offsetTop + (windowHeight / 2)) && !intro.classList.contains('fade-in')) {
-          intro.classList.add('fade-in') // ci
+          this.introElement.classList.add('fade-in') // ci
         } else if ((window.pageYOffset >= service.offsetTop - (windowHeight / 2)) && (window.pageYOffset <= service.offsetTop + (windowHeight / 2)) && !service.classList.contains('fade-in')) {
-          service.classList.add('fade-in') // gymday, labgymday
-        }
-      },
-      onLoadAboutImg: function ($event) { // About 배경 이미지 로딩 시 이미지 크기 가져옴
-        this.bgImgRatio = $event.target.naturalWidth / $event.target.naturalHeight
-
-        this.setBackgroundSize()
-      },
-      setBackgroundSize: function () { // About 배경 이미지에 따라 배경 크기 정의
-        const windowWidth = window.innerWidth
-        const windowHeight = window.innerHeight
-        const windowRatio = windowWidth / windowHeight
-
-        if (windowRatio >= this.bgImgRatio) {
-          this.bgSize = windowWidth
-        } else if (windowRatio < this.bgImgRatio) {
-          this.bgSize = windowHeight * this.bgImgRatio
+          this.serviceElement.classList.add('fade-in') // gymday, labgymday
         }
       },
       onScrollDownToNews: function () { // News로 스크롤 이동
@@ -142,12 +103,10 @@
       }
     },
     mounted () {
-      // UserAgent 확인후 모바일이라면 background-attachment를 강제로  inherit 으로 변경한다
-      if (new MobileDetect(window.navigator.userAgent).mobile()) {
-        document.querySelector('#about').className += ' mobile-background-attachment'
-      }
+      this.aboutElement = document.getElementById('about')
+      this.introElement = document.getElementById('intro')
+      this.serviceElement = document.getElementById('service')
       window.addEventListener('scroll', this.handleScroll) // scroll 이벤트 발생 시 About 배경 이미지 애니메이션 작동
-      window.addEventListener('resize', this.setBackgroundSize) // resize 이벤트 발생 시 About 배경 이미지 크기 조절
     }
   }
 </script>
@@ -158,6 +117,10 @@
     -moz-animation: $animation;
     -webkit-animation: $animation;
     animation: $animation;
+  }
+
+  #about-description-group {
+    padding: 1.5rem;
   }
 
   .about {
