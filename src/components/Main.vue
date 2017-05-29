@@ -46,7 +46,7 @@
             {name: '우동오', position: 'Web Developer', image: require('@/assets/members/dongo.jpg')}
           ],
           training: [
-            {name: '이준', position: 'Director of Labgymday', image: require('@/assets/members/leejun.png')},
+            {name: '이준', position: 'Director of Labgymday', image: require('@/assets/members/leejun.jpg')},
             {name: 'MJ', position: 'Gymday Coach', image: require('@/assets/members/mj.png')},
             {name: 'EDI', position: 'Gymday Coach', image: require('@/assets/members/edi.png')},
             {name: 'EVA', position: 'Gymday Coach', image: require('@/assets/members/eva.png')}
