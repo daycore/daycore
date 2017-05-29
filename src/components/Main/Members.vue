@@ -8,19 +8,22 @@
         <div class="team">
           <h3 class="title is-4 is-spaced">운영팀</h3>
           <div class="columns is-mobile is-multiline">
-            <member-card v-for="member in members.management" v-bind:key="member.name" class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
+            <member-card v-for="member in members.management" v-bind:key="member.name"
+                         class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
           </div>
         </div>
         <div class="team">
           <h3 class="title is-4 is-spaced">개발팀</h3>
           <div class="columns is-mobile is-multiline">
-            <member-card v-for="member in members.development" v-bind:key="member.name" class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
+            <member-card v-for="member in members.development" v-bind:key="member.name"
+                         class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
           </div>
         </div>
         <div class="team">
           <h3 class="title is-4 is-spaced">전담 트레이너</h3>
           <div class="columns is-mobile is-multiline">
-            <member-card v-for="member in members.training" v-bind:key="member.name" class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
+            <member-card v-for="member in members.training" v-bind:key="member.name"
+                         class="column is-2-desktop is-2-tablet is-6-mobile" :member="member"></member-card>
           </div>
         </div>
       </div>
@@ -48,6 +51,7 @@
 
   .title {
     color: white;
+    word-break: keep-all;
   }
 
   .subtitle {
