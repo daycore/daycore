@@ -108,4 +108,14 @@
     background-attachment: inherit !important;
   }
 
+  .hero.is-fullheight .hero-body {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+  }
+
 </style>
