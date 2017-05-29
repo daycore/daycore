@@ -48,7 +48,7 @@
 
 <style lang="scss" scoped>
   .hero {
-    background: url('../../assets/bg_contactUs.png') fixed no-repeat center center;
+    background: url('../../assets/bg_contactUs.jpg') fixed no-repeat center center;
     background-size: cover;
   }
 
