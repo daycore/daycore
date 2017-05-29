@@ -5,14 +5,13 @@
 </template>
 
 <script>
-  import MobileDetect from 'mobile-detect'
+  import bowser from 'bowser'
 
   export default {
     name: 'app',
     mounted: function () {
       // UserAgent 확인후 모바일이라면 background-attachment를 강제로 inherit 으로 변경ㅇ한다
-      const mobileDetect = new MobileDetect(window.navigator.userAgent)
-      if (mobileDetect.mobile() || mobileDetect.match('msie')) {
+      if (bowser.mobile || bowser.msie) {
         document.querySelectorAll('.background').forEach(element => (element.className += ' mobile-background-attachment'))
       }
     }

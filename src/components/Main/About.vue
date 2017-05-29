@@ -65,6 +65,7 @@
 
 <script>
   import Velocity from 'velocity-animate'
+  import bowser from 'bowser'
 
   export default {
     name: 'about',
@@ -76,7 +77,7 @@
     props: ['download'],
     methods: {
       handleScroll: function () {
-        this.backgroundAnimation()
+        if (this.isAvailableAnimation) this.backgroundAnimation()
         this.animationInView()
       },
       backgroundAnimation: function () {
@@ -106,6 +107,8 @@
       this.aboutElement = document.getElementById('about')
       this.introElement = document.getElementById('intro')
       this.serviceElement = document.getElementById('service')
+
+      this.isAvailableAnimation = !bowser.msie // MSIE (익스) 에서는 백그라운드 애니메이션을 사용하지 않는다
       window.addEventListener('scroll', this.handleScroll) // scroll 이벤트 발생 시 About 배경 이미지 애니메이션 작동
     }
   }

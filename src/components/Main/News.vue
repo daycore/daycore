@@ -3,7 +3,8 @@
 
     <div class="hero-body">
 
-      <div class="left" v-on:click="onClick($event, 'left')" v-on:mouseover="onMouseOver($event, 'left')" v-on:mouseout="this.onMouseOut">
+      <div class="left" v-on:click="onClick($event, 'left')" v-on:mouseover="onMouseOver($event, 'left')"
+           v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_left</i>
       </div>
 
@@ -21,7 +22,8 @@
         </div>
       </div>
 
-      <div class="right" v-on:click="onClick($event, 'right')" v-on:mouseover="onMouseOver($event, 'right')" v-on:mouseout="this.onMouseOut">
+      <div class="right" v-on:click="onClick($event, 'right')" v-on:mouseover="onMouseOver($event, 'right')"
+           v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_right</i>
       </div>
 
@@ -30,7 +32,7 @@
 </template>
 <script>
   import NewsCard from './NewsCard'
-  import MobileDetect from 'mobile-detect'
+  import bowser from 'bowser'
   import Velocity from 'velocity-animate'
 
   export default {
@@ -86,21 +88,19 @@
             return
           }
           this.left = -index * cardWidth
-          Velocity(newsElement, { translateX: `${this.left - 19.2 * index}px` }, { duration: 600 })
+          Velocity(newsElement, {translateX: `${this.left - 19.2 * index}px`}, {duration: 600})
         } else {
           index = parseInt(this.left / cardWidth) + 1
           if (index >= 1) {
             return
           }
           this.left = index * cardWidth
-          Velocity(newsElement, { translateX: `${this.left + 19.2 * index}px` }, { duration: 600 })
+          Velocity(newsElement, {translateX: `${this.left + 19.2 * index}px`}, {duration: 600})
         }
       }
     },
     mounted: function () {
-      if (new MobileDetect(window.navigator.userAgent).mobile()) {
-        document.querySelector('#news').className += ' mobile-scroll'
-      }
+      if (bowser.mobile) document.querySelector('#news').className += ' mobile-scroll'
     }
   }
 </script>
