@@ -3,7 +3,7 @@
 
     <div class="hero-body">
 
-      <div class="left" v-on:click="onClick($event, 'left')" v-on:mouseover="onMouseOver($event, 'left')"
+      <div class="left" v-on:click="onClick($event, 'right')" v-on:mouseover="onMouseOver($event, 'right')"
            v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_left</i>
       </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="right" v-on:click="onClick($event, 'right')" v-on:mouseover="onMouseOver($event, 'right')"
+      <div class="right" v-on:click="onClick($event, 'left')" v-on:mouseover="onMouseOver($event, 'left')"
            v-on:mouseout="this.onMouseOut">
         <i class="material-icons">keyboard_arrow_right</i>
       </div>
