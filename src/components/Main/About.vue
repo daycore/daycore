@@ -45,7 +45,7 @@
                 차별화된 모바일 트레이닝 솔루션 랩짐데이
               </h3>
               <p>
-                <a class="link" href="https://gymday-wannabe-web.firebaseapp.com/" target="_blank">
+                <a class="link" href="https://lab.gymday.co.kr/" target="_blank">
                   <i class="material-icons">arrow_back</i>
                   더 알아보기
                 </a>
