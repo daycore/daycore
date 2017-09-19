@@ -41,15 +41,12 @@
           development: [
             {name: '권혁', position: 'Server Developer', image: require('@/assets/members/hyeok.jpg')},
             {name: '정현지', position: 'Android Developer', image: require('@/assets/members/hyundee.jpg')},
-            {name: '송진표', position: 'IOS Developer', image: require('@/assets/members/jinpyo.jpg')},
             {name: '고현주', position: 'Web Developer', image: require('@/assets/members/hyunjoo.jpg')},
             {name: '우동오', position: 'Web Developer', image: require('@/assets/members/dongo.jpg')}
           ],
           training: [
-            {name: '이준', position: 'Director of Labgymday', image: require('@/assets/members/leejun.jpg')},
-            {name: 'MJ', position: 'Gymday Coach', image: require('@/assets/members/mj.png')},
             {name: 'EDI', position: 'Gymday Coach', image: require('@/assets/members/edi.png')},
-            {name: 'EVA', position: 'Gymday Coach', image: require('@/assets/members/eva.png')}
+            {name: 'RAY', position: 'Gymday Coach', image: require('@/assets/members/ray.png')}
           ]
         },
         articles: [
