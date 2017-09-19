@@ -41,7 +41,7 @@
           development: [
             {name: '권혁', position: 'Server Developer', image: require('@/assets/members/hyeok.jpg')},
             {name: '정현지', position: 'Android Developer', image: require('@/assets/members/hyundee.jpg')},
-            {name: '고현주', position: 'Web Developer', image: require('@/assets/members/hyunjoo.jpg')},
+            {name: '고현주', position: 'Web/IOS Developer', image: require('@/assets/members/hyunjoo.jpg')},
             {name: '우동오', position: 'Web Developer', image: require('@/assets/members/dongo.jpg')}
           ],
           training: [
