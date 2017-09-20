@@ -1,21 +1,7 @@
-# daycore
+# daycore(<http://daycore.co.kr>)
+> 주식회사 데이코어 회사소개 홈페이지입니다.
 
-> Daycore Website
+<hr/>
+## 푸쉬 시 주의사항
+> master 브랜치에 푸쉬 시 자동으로 firebase deploy 가 진행되므로 주의해주세요 :)
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
