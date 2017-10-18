@@ -1,7 +1,21 @@
-# daycore(<http://daycore.co.kr>)
-> 주식회사 데이코어 회사소개 홈페이지입니다.
+[![Build Status](https://travis-ci.org/dayco₩re/daycore.svg?branch=master)](https://travis-ci.org/daycore/daycore)
 
-<hr/>
-## 푸쉬 시 주의사항
-> master 브랜치에 푸쉬 시 자동으로 firebase deploy 가 진행되므로 주의해주세요 :)
+# Daycore(<https://daycore.co.kr>)
+> 데이코어 주식회사 회사소개 홈페이지입니다.
+
+# 개발 환경
+* Vue
+* bulma
+
+# 설치 방법
+```bash
+# 의존성 라이브러리 설치
+npm install
+
+# 로컬 환경에서 실행
+npm run dev
+
+# 프로덕션 상태로 빌드
+npm run build
+```
 
