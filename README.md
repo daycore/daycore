@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dayco₩re/daycore.svg?branch=master)](https://travis-ci.org/daycore/daycore)
+[![Build Status](https://travis-ci.org/daycore/daycore.svg?branch=master)](https://travis-ci.org/daycore/daycore)
 
 # Daycore(<https://daycore.co.kr>)
 > 데이코어 주식회사 회사소개 홈페이지입니다.
